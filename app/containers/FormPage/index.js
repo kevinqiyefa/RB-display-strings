@@ -1,6 +1,6 @@
 /**
  *
- * HomePage
+ * FormPage
  *
  */
 
@@ -12,23 +12,23 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectHomePage from './selectors';
+import makeSelectFormPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
-export function HomePage() {
-  useInjectReducer({ key: 'homePage', reducer });
-  useInjectSaga({ key: 'homePage', saga });
+export function FormPage() {
+  useInjectReducer({ key: 'formPage', reducer });
+  useInjectSaga({ key: 'formPage', saga });
 
-  return <div>this is Homepage</div>;
+  return <div>formpage</div>;
 }
 
-HomePage.propTypes = {
-  // dispatch: PropTypes.func.isRequired,
-};
+// FormPage.propTypes = {
+//   dispatch: PropTypes.func.isRequired,
+// };
 
 const mapStateToProps = createStructuredSelector({
-  homePage: makeSelectHomePage(),
+  formPage: makeSelectFormPage(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -42,4 +42,4 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-export default compose(withConnect)(HomePage);
+export default compose(withConnect)(FormPage);
