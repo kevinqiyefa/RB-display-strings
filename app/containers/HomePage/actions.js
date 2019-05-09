@@ -3,11 +3,27 @@
  * HomePage actions
  *
  */
+import {
+  FETCH_STRING_REQUEST,
+  FETCH_STRING_SUCCESS,
+  FETCH_STRING_FAILURE,
+} from './constants';
 
-import { DEFAULT_ACTION } from './constants';
-
-export function defaultAction() {
+export function fetchStringRequest() {
   return {
-    type: DEFAULT_ACTION,
+    type: FETCH_STRING_REQUEST,
+  };
+}
+
+export function fetchStringSuccess(strings) {
+  return {
+    type: FETCH_STRING_SUCCESS,
+    strings,
+  };
+}
+
+export function fetchStringFailure() {
+  return {
+    type: FETCH_STRING_FAILURE,
   };
 }

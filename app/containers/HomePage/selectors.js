@@ -5,7 +5,7 @@ import { initialState } from './reducer';
  * Direct selector to the homePage state domain
  */
 
-const selectHomePageDomain = state => state.homePage || initialState;
+const selectHomePageDomain = state => state.strings || initialState;
 
 /**
  * Other specific selectors
@@ -15,11 +15,11 @@ const selectHomePageDomain = state => state.homePage || initialState;
  * Default selector used by HomePage
  */
 
-const makeSelectHomePage = () =>
+const makeSelectStrings = () =>
   createSelector(
     selectHomePageDomain,
     substate => substate,
   );
 
-export default makeSelectHomePage;
+export default makeSelectStrings;
 export { selectHomePageDomain };
