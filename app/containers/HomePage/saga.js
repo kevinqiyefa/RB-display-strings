@@ -2,9 +2,9 @@ import { all, put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 import { FETCH_STRING_REQUEST } from './constants';
-import { fetchStringSuccess, fetchStringFailure } from './actions';
+import { fetchStringSuccess } from './actions';
 
-export function* getStrings() {
+function* getStrings() {
   const requestURL = `http://localhost:3000/api/strings`;
 
   try {
@@ -12,7 +12,8 @@ export function* getStrings() {
     const strings = yield axios.get(requestURL);
     yield put(fetchStringSuccess(strings.data));
   } catch (err) {
-    yield put(fetchStringFailure());
+    // Will handle this if needed
+    // yield put(fetchStringFailure());
   }
 }
 

@@ -16,17 +16,16 @@ import makeSelectStrings from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import { fetchStringRequest } from './actions';
+import DisplayStrings from '../../components/DisplayStrings';
 
 export function HomePage(props) {
   useInjectReducer({ key: 'strings', reducer });
   useInjectSaga({ key: 'strings', saga });
 
-  console.log('stringss:', props.strings);
-
   useEffect(() => {
     props.fetchStringRequest();
   }, []);
-  return <div>this is Homepage</div>;
+  return <DisplayStrings strings={props.strings} />;
 }
 
 HomePage.propTypes = {
@@ -38,15 +37,15 @@ const mapStateToProps = createStructuredSelector({
   strings: makeSelectStrings(),
 });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchStringRequest: () => dispatch(fetchStringRequest()),
-  };
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     fetchStringRequest: () => dispatch(fetchStringRequest()),
+//   };
+// }
 
 const withConnect = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  { fetchStringRequest },
 );
 
 export default compose(withConnect)(HomePage);

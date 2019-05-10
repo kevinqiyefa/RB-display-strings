@@ -5,30 +5,28 @@
  */
 
 import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
-import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectFormPage from './selectors';
-import reducer from './reducer';
 import saga from './saga';
+import { postStringRequest } from './actions';
 
-export function FormPage() {
-  useInjectReducer({ key: 'formPage', reducer });
+export function FormPage(props) {
   useInjectSaga({ key: 'formPage', saga });
 
-  const [inputString, setinputString] = useState('');
+  const [inputString, setInputString] = useState('');
 
   const inputChangeHandler = e => {
-    setinputString(e.target.value);
+    setInputString(e.target.value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    setinputString('');
+    props.postStringRequest(inputString);
+    setInputString('');
+    props.history.push('/');
   };
 
   return (
@@ -42,22 +40,19 @@ export function FormPage() {
   );
 }
 
-// FormPage.propTypes = {
-//   dispatch: PropTypes.func.isRequired,
-// };
-
-const mapStateToProps = createStructuredSelector({
-  formPage: makeSelectFormPage(),
-});
+FormPage.propTypes = {
+  postStringRequest: PropTypes.func.isRequired,
+  history: PropTypes.object,
+};
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    postStringRequest: str => dispatch(postStringRequest(str)),
   };
 }
 
 const withConnect = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 );
 

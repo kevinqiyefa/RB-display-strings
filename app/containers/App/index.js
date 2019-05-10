@@ -15,16 +15,18 @@ import FormPage from 'containers/FormPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
+import Header from '../../components/Header';
 
 export default function App() {
   return (
-    <div>
+    <>
+      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/form" component={FormPage} />
+        <Route exact path="/addstrings" component={FormPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
-    </div>
+    </>
   );
 }
