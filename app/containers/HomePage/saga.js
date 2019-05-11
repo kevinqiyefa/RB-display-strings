@@ -1,4 +1,4 @@
-import { all, put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 import { FETCH_STRING_REQUEST } from './constants';
@@ -17,10 +17,6 @@ function* getStrings() {
   }
 }
 
-function* loadStrings() {
-  yield takeLatest(FETCH_STRING_REQUEST, getStrings);
-}
-
 /**
  * Root saga manages watcher lifecycle
  */
@@ -29,5 +25,5 @@ export default function* homePageSaga() {
   // By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor (just like fork) so we can continue execution
   // It will be cancelled automatically on component unmount
-  yield all([loadStrings()]);
+  yield takeLatest(FETCH_STRING_REQUEST, getStrings);
 }

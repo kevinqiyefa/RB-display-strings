@@ -1,4 +1,4 @@
-import { all, takeEvery } from 'redux-saga/effects';
+import { takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 import { POST_STRING_REQUEST } from './constants';
@@ -16,12 +16,7 @@ function* postStrings(action) {
   }
 }
 
-function* postStringRequst() {
-  yield takeEvery(POST_STRING_REQUEST, postStrings);
-}
-
 // Individual exports for testing
 export default function* formPageSaga() {
-  // See example in containers/HomePage/saga.js
-  yield all([postStringRequst()]);
+  yield takeEvery(POST_STRING_REQUEST, postStrings);
 }
