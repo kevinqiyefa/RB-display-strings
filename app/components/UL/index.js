@@ -12,6 +12,9 @@ const UL = styled.ul`
   padding: 0;
   overflow: hidden;
   font-size: 1.3em;
+  display: flex;
+  justify-content: center;
+  max-width: calc(768px + 16px * 2);
 `;
 
 export default UL;
