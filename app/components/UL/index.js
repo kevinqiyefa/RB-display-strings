@@ -18,5 +18,4 @@ const UL = styled.ul`
   flex-direction: ${props => (props.header ? 'row' : 'column')};
 `;
 
-// max-width: ${props => (props.header ? 'calc(768px + 16px * 2)' : '100%')};
 export default UL;

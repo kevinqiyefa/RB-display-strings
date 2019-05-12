@@ -9,16 +9,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import UL from '../UL';
-
-const ContentWrapper = styled.div`
-  max-width: 700px;
-  width: 500px;
-  margin 2em auto;
-
-  @media (max-width: 500px) {
-    width: 100%;
-  }
-`;
+import ContentWrapper from '../ContentWrapper';
 
 const ContentHeader = styled.h1`
   font-weight: bold;

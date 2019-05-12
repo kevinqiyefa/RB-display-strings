@@ -30,7 +30,7 @@ export function HomePage(props) {
   if (props.strings.length < 1) {
     return <Loader />;
   }
-  return <DisplayStrings strings={props.strings} />;
+  return <DisplayStrings strings={props.strings.reverse()} />;
 }
 
 HomePage.propTypes = {

@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import UL from '../UL';
 
 const HeaderWrapper = styled.div`
-  padding: 1.5em 4em;
+  padding: 1em 4em;
   background: #0bbefc;
 `;
 
