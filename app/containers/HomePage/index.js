@@ -17,6 +17,7 @@ import reducer from './reducer';
 import saga from './saga';
 import { fetchStringRequest } from './actions';
 import DisplayStrings from '../../components/DisplayStrings';
+import Loader from '../../components/Loader';
 
 export function HomePage(props) {
   useInjectReducer({ key: 'strings', reducer });
@@ -25,6 +26,10 @@ export function HomePage(props) {
   useEffect(() => {
     props.fetchStringRequest();
   }, []);
+
+  if (props.strings.length < 1) {
+    return <Loader />;
+  }
   return <DisplayStrings strings={props.strings} />;
 }
 
@@ -36,12 +41,6 @@ HomePage.propTypes = {
 const mapStateToProps = createStructuredSelector({
   strings: makeSelectStrings(),
 });
-
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     fetchStringRequest: () => dispatch(fetchStringRequest()),
-//   };
-// }
 
 const withConnect = connect(
   mapStateToProps,

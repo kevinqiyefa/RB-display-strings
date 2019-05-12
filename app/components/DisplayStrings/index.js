@@ -6,11 +6,42 @@
 
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import styled from 'styled-components';
+
+import UL from '../UL';
+
+const ContentWrapper = styled.div`
+  max-width: 700px;
+  width: 500px;
+  margin 2em auto;
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
+`;
+
+const ContentHeader = styled.h1`
+  font-weight: bold;
+  text-align: center;
+`;
+
+const LI = styled.li`
+  border: 1px solid #ddd;
+  background-color: #f6f6f6;
+  padding: 12px;
+  border-collapse: collapse;
+  margin-top: -1px;
+`;
 
 function DisplayStrings(props) {
-  const strings = props.strings.map(str => <li key={str.id}>{str.string}</li>);
-  return <ul>{strings}</ul>;
+  const strings = props.strings.map(str => <LI key={str.id}>{str.string}</LI>);
+
+  return (
+    <ContentWrapper>
+      <ContentHeader>Strings From Database:</ContentHeader>
+      <UL>{strings}</UL>
+    </ContentWrapper>
+  );
 }
 
 DisplayStrings.propTypes = {

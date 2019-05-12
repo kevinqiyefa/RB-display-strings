@@ -8,41 +8,53 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import UL from '../UL';
-import LI from '../Li';
 
 const HeaderWrapper = styled.div`
   padding: 1.5em 4em;
   background: #0bbefc;
 `;
 
+const HeaderConent = styled.div`
+  max-width: calc(768px + 16px * 2);
+  margin: 0 auto;
+`;
+
 const StyledLink = styled(NavLink)`
   color: gray;
   text-decoration: none;
   text-align: center;
-  padding: 14px 16px;
+  margin: 14px 16px;
+  display: inline-block;
 
   &.active,
   &:hover {
     color: white;
     font-weight: bolder;
   }
+
+  &:hover {
+    border-bottom: 5px solid white;
+    margin-bottom: -5px;
+  }
 `;
 
 function Header() {
   return (
     <HeaderWrapper>
-      <UL>
-        <LI>
-          <StyledLink exact activeClassName="active" to="/">
-            Home
-          </StyledLink>
-        </LI>
-        <LI>
-          <StyledLink activeClassName="active" to="/addstrings">
-            Add String
-          </StyledLink>
-        </LI>
-      </UL>
+      <HeaderConent>
+        <UL header>
+          <li>
+            <StyledLink exact activeClassName="active" to="/">
+              Home
+            </StyledLink>
+          </li>
+          <li>
+            <StyledLink activeClassName="active" to="/addstrings">
+              Add String
+            </StyledLink>
+          </li>
+        </UL>
+      </HeaderConent>
     </HeaderWrapper>
   );
 }
