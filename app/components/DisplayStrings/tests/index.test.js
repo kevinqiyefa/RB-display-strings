@@ -15,12 +15,15 @@ import DisplayStrings from '../index';
 describe('<DisplayStrings />', () => {
   it('Expect to not log errors in console', () => {
     const spy = jest.spyOn(global.console, 'error');
-    render(<DisplayStrings />);
+    render(<DisplayStrings strings={[]} />);
     expect(spy).not.toHaveBeenCalled();
   });
 
-  it('Expect to have additional unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('Expect to render ', () => {
+    const { getByText } = render(
+      <DisplayStrings strings={[{ id: 1, string: 'testing' }]} />,
+    );
+    expect(getByText('testing')).toBeTruthy();
   });
 
   /**
@@ -28,10 +31,11 @@ describe('<DisplayStrings />', () => {
    *
    * @see {@link https://jestjs.io/docs/en/api#testskipname-fn}
    */
-  it.skip('Should render and match the snapshot', () => {
+  it('Should render and match the snapshot', () => {
     const {
       container: { firstChild },
-    } = render(<DisplayStrings />);
+    } = render(<DisplayStrings strings={[]} />);
+
     expect(firstChild).toMatchSnapshot();
   });
 });
