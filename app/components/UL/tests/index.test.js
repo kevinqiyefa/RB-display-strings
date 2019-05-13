@@ -1,20 +1,20 @@
 import React from 'react';
 import { render } from 'react-testing-library';
 
-import Loader from '../index';
+import UL from '../index';
 
-describe('<Loader />', () => {
-  it('should render an <div> tag', () => {
+describe('<UL />', () => {
+  it('should render an <ul> tag', () => {
     const {
       container: { firstChild },
-    } = render(<Loader />);
-    expect(firstChild.tagName).toEqual('DIV');
+    } = render(<UL />);
+    expect(firstChild.tagName).toEqual('UL');
   });
 
   it('should have a class attribute', () => {
     const {
       container: { firstChild },
-    } = render(<Loader />);
+    } = render(<UL />);
     expect(firstChild.hasAttribute('class')).toBe(true);
   });
 
@@ -22,14 +22,14 @@ describe('<Loader />', () => {
     const id = 'test';
     const {
       container: { firstChild },
-    } = render(<Loader id={id} />);
+    } = render(<UL id={id} />);
     expect(firstChild.id).toEqual(id);
   });
 
   it('should not adopt an invalid attribute', () => {
     const {
       container: { firstChild },
-    } = render(<Loader attribute="test" />);
+    } = render(<UL attribute="test" />);
     expect(firstChild.hasAttribute('attribute')).toBe(false);
   });
 });
