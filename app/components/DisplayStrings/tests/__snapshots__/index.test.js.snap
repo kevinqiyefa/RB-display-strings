@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DisplayStrings /> Should render and match the snapshot 1`] = `
+exports[`<DisplayStrings the props/> Should render and match the snapshot 1`] = `
 <div
   class="ContentWrapper-sc-1pl7b9y-0 kNVNXH"
 >

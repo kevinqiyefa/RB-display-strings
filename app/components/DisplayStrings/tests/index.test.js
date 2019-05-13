@@ -12,7 +12,7 @@ import { render } from 'react-testing-library';
 
 import DisplayStrings from '../index';
 
-describe('<DisplayStrings />', () => {
+describe('<DisplayStrings the props/>', () => {
   it('Expect to not log errors in console', () => {
     const spy = jest.spyOn(global.console, 'error');
     render(<DisplayStrings strings={[]} />);
