@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomePage /> should render and match the snapshot 1`] = `
+<div
+  class="ContentWrapper-sc-1pl7b9y-0 kNVNXH"
+>
+  <h1
+    class="DisplayStrings__ContentHeader-sc-1743nj8-0 jZIUMu"
+  >
+    Strings From Database:
+  </h1>
+  <ul
+    class="UL-sc-16unqrb-0 PCfYS"
+  >
+    <li
+      class="DisplayStrings__LI-sc-1743nj8-1 bYXRYq"
+    >
+      text
+    </li>
+  </ul>
+</div>
+`;

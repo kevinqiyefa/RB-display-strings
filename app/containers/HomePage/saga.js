@@ -1,19 +1,20 @@
-import { put, takeLatest } from 'redux-saga/effects';
-import axios from 'axios';
+import { put, takeLatest, call } from 'redux-saga/effects';
 
+import request from 'utils/request';
 import { FETCH_STRING_REQUEST } from './constants';
-import { fetchStringSuccess } from './actions';
+import { fetchStringSuccess, fetchStringFailure } from './actions';
 
-function* getStrings() {
+export function* getStrings() {
   const requestURL = `http://localhost:3000/api/strings`;
 
   try {
     // Call the server and fetch strings
-    const strings = yield axios.get(requestURL);
-    yield put(fetchStringSuccess(strings.data));
+    const strings = yield call(request, requestURL);
+
+    yield put(fetchStringSuccess(strings));
   } catch (err) {
     // Will handle this if needed
-    // yield put(fetchStringFailure());
+    yield put(fetchStringFailure(err));
   }
 }
 

@@ -22,8 +22,9 @@ export function fetchStringSuccess(strings) {
   };
 }
 
-export function fetchStringFailure() {
+export function fetchStringFailure(err) {
   return {
     type: FETCH_STRING_FAILURE,
+    err,
   };
 }

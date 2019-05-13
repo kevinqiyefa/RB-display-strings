@@ -30,8 +30,8 @@ export function HomePage(props) {
   if (props.strings.length < 1) {
     return <Loader />;
   }
-  console.log(props.strings);
-  return <DisplayStrings strings={props.strings.reverse()} />;
+
+  return <DisplayStrings strings={props.strings} />;
 }
 
 HomePage.propTypes = {

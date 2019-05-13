@@ -18,7 +18,7 @@ const selectHomePageDomain = state => state.strings || initialState;
 const makeSelectStrings = () =>
   createSelector(
     selectHomePageDomain,
-    substate => substate.strings,
+    substate => substate.strings.reverse(),
   );
 
 export default makeSelectStrings;
