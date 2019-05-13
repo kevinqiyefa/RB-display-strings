@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render a div 1`] = `
+<div
+  class="Header__HeaderWrapper-sc-1lzyagy-0 bFkeub"
+>
+  <div
+    class="Header__HeaderConent-sc-1lzyagy-1 jtXOeb"
+  >
+    <ul
+      class="UL-sc-16unqrb-0 gZwkRN"
+    >
+      <li>
+        <a
+          aria-current="page"
+          class="Header__StyledLink-sc-1lzyagy-2 eTlEwa active"
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          class="Header__StyledLink-sc-1lzyagy-2 eTlEwa"
+          href="/addstrings"
+        >
+          Add String
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
