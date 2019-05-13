@@ -22,8 +22,9 @@ export function postStringSuccess() {
   };
 }
 
-export function postStringFailure() {
+export function postStringFailure(err) {
   return {
     type: POST_STRING_FAILURE,
+    err,
   };
 }

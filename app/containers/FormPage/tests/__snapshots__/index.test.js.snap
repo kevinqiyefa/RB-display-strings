@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormPage /> should render and match the snapshot 1`] = `
+<div
+  class="ContentWrapper-sc-1pl7b9y-0 kEVOet"
+>
+  <h1
+    class="ContentHeader-cm493b-0 bZemkD"
+  >
+    Enter a string:
+  </h1>
+  <form
+    class="AddStringForm-sc-13pwdct-0 hOzxvj"
+  >
+    <div
+      class="InputWrapper-sc-133b58z-0 gNAbZM"
+    >
+      <input
+        class="Input-sc-18nxcvk-0 hyFzew"
+        placeholder="string"
+        type="text"
+        value=""
+      />
+    </div>
+    <input
+      class="SubmitButton-sc-1t59sxp-0 jCulgx"
+      type="submit"
+      value="Add"
+    />
+  </form>
+</div>
+`;

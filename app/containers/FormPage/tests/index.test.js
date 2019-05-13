@@ -1,6 +1,6 @@
 /**
  *
- * Tests for HomePage
+ * Tests for FormPage
  *
  * @see https://github.com/react-boilerplate/react-boilerplate/tree/master/docs/testing
  *
@@ -8,15 +8,15 @@
 
 import React from 'react';
 import { render } from 'react-testing-library';
-
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router-dom';
 
-import { HomePage } from '../index';
 import configureStore from '../../../configureStore';
 
-describe('<HomePage />', () => {
+import { FormPage } from '../index';
+
+describe('<FormPage />', () => {
   let store;
 
   beforeAll(() => {
@@ -24,16 +24,13 @@ describe('<HomePage />', () => {
   });
 
   it('should render and match the snapshot', () => {
-    const fetchData = jest.fn();
+    const dispatch = jest.fn();
     const {
       container: { firstChild },
     } = render(
       <Provider store={store}>
         <IntlProvider locale="en">
-          <HomePage
-            strings={[{ id: 1, string: 'text' }]}
-            fetchStringRequest={fetchData}
-          />
+          <FormPage fetchStringRequest={dispatch} />
         </IntlProvider>
       </Provider>,
     );
