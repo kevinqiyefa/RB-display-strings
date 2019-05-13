@@ -67,7 +67,7 @@ export function FormPage(props) {
 }
 
 FormPage.propTypes = {
-  postStringRequest: PropTypes.func.isRequired,
+  postStringRequest: PropTypes.func,
   history: PropTypes.object,
 };
 
